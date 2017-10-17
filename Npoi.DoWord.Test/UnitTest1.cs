@@ -11,9 +11,10 @@ namespace Npoi.DoWord.Test
         public void TestMethod1()
         {
             List<string> sqls=new List<string>();
-            sqls = WordHelper.GenerateCreateTableSql(@"D:\紫云来数据库设计.docx", "BasScenicTicketType", "BasScenicTicket",
-                "BusScenicOrder", "BusScenicOrderTicket", "BasHotelRoomType", "BasHotelRoom", "BusHotelOrder",
-                "BusHotelOrderRoom", "BasCourse", "BasCourseSchedule", "BasCourseOrder");
+            //sqls = WordHelper.GenerateCreateTableSql(@"D:\紫云来数据库设计.docx", "StaMemberOrder", "StaGoodsOrder", "StaDayData");
+            //sqls = WordHelper.GenerateCreateTableSql(@"D:\西域美农数据库设计.docx");
+            //sqls = WordHelper.GenerateCreateTableSql(@"D:\公司官网概要设计.docx");
+            sqls = WordHelper.GenerateCreateTableSql(@"D:\数据库设计.docx", "SysMerchantGroup", "SysTrade", "Region", "SysMerchant", "SysModule", "SysMenu", "SysRole", "SysRoleFunc", "SysLogin", "SysLoginRole");
             foreach (string sql in sqls)
             {
                 Console.WriteLine(sql);

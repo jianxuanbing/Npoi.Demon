@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Npoi.DoWord", "Npoi.DoWord\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Npoi.DoWord.Test", "Npoi.DoWord.Test\Npoi.DoWord.Test.csproj", "{A4DCF475-D326-463F-9759-920338D78A88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbSqlGenerater", "DbSqlGenerater\DbSqlGenerater.csproj", "{821BFDE4-6E1C-4BE4-AA8A-077A545DA07E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A4DCF475-D326-463F-9759-920338D78A88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4DCF475-D326-463F-9759-920338D78A88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4DCF475-D326-463F-9759-920338D78A88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{821BFDE4-6E1C-4BE4-AA8A-077A545DA07E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{821BFDE4-6E1C-4BE4-AA8A-077A545DA07E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{821BFDE4-6E1C-4BE4-AA8A-077A545DA07E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{821BFDE4-6E1C-4BE4-AA8A-077A545DA07E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
