@@ -20,5 +20,12 @@ namespace Npoi.DoWord.Test
                 Console.WriteLine(sql);
             }
         }
+
+        [TestMethod]
+        public void TestMethod2()
+        {
+            var result = WordHelper.GenerateAddColumnSql("BasGoodsDetail", "BusinessFlag", "int", "业务类型,0:普通商品,1:拍卖商品", true);
+            Console.WriteLine(result);
+        }
     }
 }

@@ -238,9 +238,9 @@ namespace Npoi.DoWord
                 StringBuilder sb=new StringBuilder();
                 foreach (var field in table.Fields)
                 {
-                    sb.AppendFormat("if col_lenght('{0}','{1}') is not null\r\n", table.Name, field.Name);
+                    sb.AppendFormat("if COL_LENGTH('{0}','{1}') is not null\r\n", table.Name, field.Name);
                     sb.Append("\t");
-                    sb.AppendFormat("alert table {0} add {1} {2} {3}\n", table.Name, field.Name, field.Type,
+                    sb.AppendFormat("alter table {0} add {1} {2} {3}\n", table.Name, field.Name, field.Type,
                         field.IsRequired == "N" ? "null" : "not null");
                     sb.Append("\t");
                     sb.AppendFormat(
@@ -251,6 +251,32 @@ namespace Npoi.DoWord
             }
 
             return sqls;
+        }
+
+        /// <summary>
+        /// 生成添加列Sql
+        /// </summary>
+        /// <param name="tableName">表名</param>
+        /// <param name="fieldName">字段名</param>
+        /// <param name="type">字段类型</param>
+        /// <param name="desc">备注</param>
+        /// <param name="isNull">是否为空</param>
+        /// <returns></returns>
+        public static string GenerateAddColumnSql(string tableName, string fieldName, string type, string desc,
+            bool isNull)
+        {
+            StringBuilder sb=new StringBuilder();
+
+            sb.AppendFormat("if COL_LENGTH('{0}','{1}') is not null\r\n", tableName, fieldName);
+            sb.Append("\t");
+            sb.AppendFormat("alter table {0} add {1} {2} {3}\n", tableName, fieldName, type,
+                isNull? "null" : "not null");
+            sb.Append("\t");
+            sb.AppendFormat(
+                "exec sp_addextendedproperty N'MS_Description',N'{0}',N'user',N'dbo',N'table',N'{1}',N'column',N'{2}'\n",
+                desc, tableName, fieldName);
+
+            return sb.ToString();
         }
 
         /// <summary>
@@ -287,5 +313,7 @@ namespace Npoi.DoWord
 
             return sqls;
         }
+
+        
     }
 }
