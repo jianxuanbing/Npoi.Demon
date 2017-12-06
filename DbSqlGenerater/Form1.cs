@@ -76,5 +76,25 @@ namespace DbSqlGenerater
             }
             this.rtbSql.Text = sb.ToString();
         }
+
+        private void SetSelectTable(object sender, EventArgs e)
+        {
+            SelectTableForm f2 = (SelectTableForm) sender;
+            this.rtbIncludeTable.Text = string.Join(",", f2.SelectTables);
+        }
+
+        private void btnSelectTable_Click(object sender, EventArgs e)
+        {
+            string filePath = txtFilePath.Text;
+            if (string.IsNullOrWhiteSpace(filePath))
+            {
+                MessageBox.Show("请选择doc文档!", "提示");
+                return;
+            }
+            WordHelper.LoadWordData(filePath);
+            SelectTableForm form=new SelectTableForm();
+            form.Event+=new EventHandler(SetSelectTable);
+            form.Show();
+        }
     }
 }

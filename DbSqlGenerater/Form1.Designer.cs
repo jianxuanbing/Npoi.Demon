@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.rtbSql = new System.Windows.Forms.RichTextBox();
             this.btnGenerateSql = new System.Windows.Forms.Button();
+            this.btnSelectTable = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSelectFile
@@ -131,11 +132,22 @@
             this.btnGenerateSql.UseVisualStyleBackColor = true;
             this.btnGenerateSql.Click += new System.EventHandler(this.btnGenerateSql_Click);
             // 
+            // btnSelectTable
+            // 
+            this.btnSelectTable.Location = new System.Drawing.Point(180, 98);
+            this.btnSelectTable.Name = "btnSelectTable";
+            this.btnSelectTable.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectTable.TabIndex = 10;
+            this.btnSelectTable.Text = "选择表";
+            this.btnSelectTable.UseVisualStyleBackColor = true;
+            this.btnSelectTable.Click += new System.EventHandler(this.btnSelectTable_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 687);
+            this.Controls.Add(this.btnSelectTable);
             this.Controls.Add(this.btnGenerateSql);
             this.Controls.Add(this.rtbSql);
             this.Controls.Add(this.label3);
@@ -165,6 +177,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox rtbSql;
         private System.Windows.Forms.Button btnGenerateSql;
+        private System.Windows.Forms.Button btnSelectTable;
     }
 }
 

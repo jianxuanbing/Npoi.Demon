@@ -37,6 +37,40 @@ namespace Npoi.DoWord
     /// </summary>
     public class WordHelper
     {
+        public static List<TableInfo> Data=new List<TableInfo>();
+
+        /// <summary>
+        /// 加载Word数据
+        /// </summary>
+        /// <param name="filePath">文件路径</param>
+        public static void LoadWordData(string filePath)
+        {
+            Data = ExcuteWord(filePath);
+        }
+
+        /// <summary>
+        /// 获取表列表
+        /// </summary>
+        /// <returns></returns>
+        public static List<string> GetTableList()
+        {
+            return Data.Select(x => x.Name).ToList();
+        }
+
+        /// <summary>
+        /// 获取表列表
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public static List<string> GetTableList(string filePath)
+        {
+            if (Data.Count == 0)
+            {
+                Data = ExcuteWord(filePath);
+            }            
+            return Data.Select(x => x.Name).ToList();
+        }
+
         /// <summary>
         /// 提取Word文档
         /// </summary>
@@ -156,7 +190,11 @@ namespace Npoi.DoWord
         public static List<string> GenerateCreateTableSql(string filePath,params string[] include)
         {
             List<string> sqls=new List<string>();
-            var tables = ExcuteWord(filePath);
+            if (Data.Count == 0)
+            {
+                Data = ExcuteWord(filePath);
+            }
+            var tables = Data;
 
             foreach (var table in tables)
             {
@@ -232,7 +270,11 @@ namespace Npoi.DoWord
         public static List<string> GenerateAddColumnSql(string filePath)
         {
             List<string> sqls = new List<string>();
-            var tables = ExcuteWord(filePath);
+            if (Data.Count == 0)
+            {
+                Data = ExcuteWord(filePath);
+            }
+            var tables = Data;
             foreach (var table in tables)
             {
                 StringBuilder sb=new StringBuilder();
@@ -287,7 +329,11 @@ namespace Npoi.DoWord
         public static List<string> GenerateAddDescSql(string filePath)
         {
             List<string> sqls = new List<string>();
-            var tables = ExcuteWord(filePath);
+            if (Data.Count == 0)
+            {
+                Data = ExcuteWord(filePath);
+            }
+            var tables = Data;
             foreach (var table in tables)
             {
                 StringBuilder sb = new StringBuilder();
