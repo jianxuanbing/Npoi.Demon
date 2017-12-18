@@ -33,8 +33,6 @@
             this.btnChooseFile = new System.Windows.Forms.Button();
             this.lblDbConnectionStr = new System.Windows.Forms.Label();
             this.txtDbConnectionStr = new System.Windows.Forms.TextBox();
-            this.lblDbName = new System.Windows.Forms.Label();
-            this.txtDbName = new System.Windows.Forms.TextBox();
             this.lblDbType = new System.Windows.Forms.Label();
             this.txtDbType = new System.Windows.Forms.TextBox();
             this.lblGenerateWay = new System.Windows.Forms.Label();
@@ -85,22 +83,6 @@
             this.txtDbConnectionStr.Name = "txtDbConnectionStr";
             this.txtDbConnectionStr.Size = new System.Drawing.Size(337, 21);
             this.txtDbConnectionStr.TabIndex = 4;
-            // 
-            // lblDbName
-            // 
-            this.lblDbName.AutoSize = true;
-            this.lblDbName.Location = new System.Drawing.Point(12, 90);
-            this.lblDbName.Name = "lblDbName";
-            this.lblDbName.Size = new System.Drawing.Size(65, 12);
-            this.lblDbName.TabIndex = 5;
-            this.lblDbName.Text = "数据库名：";
-            // 
-            // txtDbName
-            // 
-            this.txtDbName.Location = new System.Drawing.Point(83, 87);
-            this.txtDbName.Name = "txtDbName";
-            this.txtDbName.Size = new System.Drawing.Size(385, 21);
-            this.txtDbName.TabIndex = 6;
             // 
             // lblDbType
             // 
@@ -177,8 +159,6 @@
             this.Controls.Add(this.lblGenerateWay);
             this.Controls.Add(this.txtDbType);
             this.Controls.Add(this.lblDbType);
-            this.Controls.Add(this.txtDbName);
-            this.Controls.Add(this.lblDbName);
             this.Controls.Add(this.txtDbConnectionStr);
             this.Controls.Add(this.lblDbConnectionStr);
             this.Controls.Add(this.btnChooseFile);
@@ -198,8 +178,6 @@
         private System.Windows.Forms.Button btnChooseFile;
         private System.Windows.Forms.Label lblDbConnectionStr;
         private System.Windows.Forms.TextBox txtDbConnectionStr;
-        private System.Windows.Forms.Label lblDbName;
-        private System.Windows.Forms.TextBox txtDbName;
         private System.Windows.Forms.Label lblDbType;
         private System.Windows.Forms.TextBox txtDbType;
         private System.Windows.Forms.Label lblGenerateWay;

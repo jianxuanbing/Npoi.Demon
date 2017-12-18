@@ -16,8 +16,7 @@ namespace DbSqlGenerater
         public DbSyncForm()
         {
             InitializeComponent();
-            this.txtDbType.Text = "System.Data.Sqlclient";
-            this.txtDbName.Text = "";
+            this.txtDbType.Text = "System.Data.Sqlclient";            
             this.txtDbConnectionStr.Text = "";
         }
 
@@ -49,8 +48,7 @@ namespace DbSqlGenerater
                 MessageBox.Show("请选择生成方式!", "提示");
                 return;
             }
-            string dbConnectionStr = this.txtDbConnectionStr.Text;
-            string dbName = this.txtDbName.Text;
+            string dbConnectionStr = this.txtDbConnectionStr.Text;            
             string dbType = this.txtDbType.Text;
             switch (text)
             {
@@ -60,11 +58,6 @@ namespace DbSqlGenerater
                     if (string.IsNullOrWhiteSpace(dbConnectionStr))
                     {
                         MessageBox.Show("请填写数据库连接字符串", "提示");
-                        return;
-                    }
-                    if (string.IsNullOrWhiteSpace(dbName))
-                    {
-                        MessageBox.Show("请填写数据库名", "提示");
                         return;
                     }
                     if (string.IsNullOrWhiteSpace(dbType))
@@ -84,7 +77,6 @@ namespace DbSqlGenerater
                 comparedHelper.SetConfig(config =>
                 {
                     config.DbConnection = dbConnectionStr;
-                    config.DbName = dbName;
                     config.ProviderName = dbType;
                 });
             }
