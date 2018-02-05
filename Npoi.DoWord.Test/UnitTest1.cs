@@ -42,5 +42,17 @@ namespace Npoi.DoWord.Test
             var result=compared.Create();
             Console.WriteLine(result);
         }
+
+        [TestMethod]
+        public void Test_Sub()
+        {
+            var source = "nvarchar(64)";
+            var index = source.IndexOf("(", StringComparison.Ordinal);
+            var result = source.Substring(0, index);
+            Console.Write(result);
+
+            var index1 =  "datetime".IndexOf("(", StringComparison.Ordinal);
+            Console.WriteLine(index1);
+        }
     }
 }

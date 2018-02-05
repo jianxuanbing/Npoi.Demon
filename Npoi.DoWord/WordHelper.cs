@@ -149,6 +149,7 @@ namespace Npoi.DoWord
                         }
                         if (i > 3)
                         {
+                            field.InitDecimal();
                             fields.Add(field);
                         }                        
                     }                    

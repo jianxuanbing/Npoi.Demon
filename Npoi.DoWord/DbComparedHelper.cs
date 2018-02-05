@@ -78,6 +78,7 @@ namespace Npoi.DoWord
         {
             if (!string.IsNullOrWhiteSpace(Config.Instance.DbConnection))
             {
+                DbDic.Clear();
                 InitDbDic();
             }
             InitDocData();
@@ -264,8 +265,18 @@ namespace Npoi.DoWord
         /// <param name="docColumn"></param>
         private void GenerateAddColumnSql(StringBuilder sb,string tableName, FieldInfo docColumn)
         {
-            sb.AppendFormat("alter table {0} add {1} {2} {3}", tableName, docColumn.Name, docColumn.Type,
-                docColumn.IsRequired == "N" ? "null" : "not null").AppendLine();
+            sb.AppendFormat("alter table {0} add {1} {2} {3}", tableName, docColumn.Name, docColumn.Type, "null")
+                .AppendLine();
+            if (docColumn.IsRequired == "Y")
+            {
+                sb.AppendLine("go");
+                sb.AppendFormat("update {0} set {1} = {2} where {1} is null", tableName, docColumn.Name,
+                    docColumn.GetDefaultValue()).AppendLine();
+                sb.AppendLine("go");
+                sb.AppendFormat("alter table {0} alter column {1} {2} {3}", tableName, docColumn.Name, docColumn.Type,
+                    "not null").AppendLine();
+                sb.AppendLine("go");
+            }
         }
 
         /// <summary>

@@ -57,5 +57,60 @@ namespace Npoi.DoWord
         /// 参考
         /// </summary>
         public string Reference { get; set; }
+
+        /// <summary>
+        /// 初始化Decimal
+        /// </summary>
+        public void InitDecimal()
+        {
+            if (GetPrefix() == "dec")
+            {
+                Type = Type.Replace("dec", "decimal");
+            }
+        }
+
+        /// <summary>
+        /// 获取前缀
+        /// </summary>
+        /// <returns></returns>
+        public string GetPrefix()
+        {
+            var index=this.Type.IndexOf("(", StringComparison.Ordinal);
+            if (index <= 0)
+            {
+                return Type.ToLower();
+            }
+            return Type.Substring(0, index).ToLower();
+        }
+
+        /// <summary>
+        /// 获取默认值
+        /// </summary>
+        /// <returns></returns>
+        public string GetDefaultValue()
+        {
+            switch (GetPrefix())
+            {
+                case "dec":
+                case "decimal":
+                case "int":
+                case "bit":
+                case "bigint":
+                case "float":
+                    return "0";
+                case "datetime":
+                    return "GETDATE()";
+                case "nvarchar":
+                case "varchar":
+                case "text":
+                case "ntext":
+                case "char":
+                case "nchar":
+                    return "''";
+                case "uniqueidentifier":
+                    return "NEWID()";
+            }
+            return string.Empty;
+        }
     }
 }

@@ -79,10 +79,10 @@ namespace DbSqlGenerater
                     config.DbConnection = dbConnectionStr;
                     config.ProviderName = dbType;
                 });
-            }
+            }            
+            var result = comparedHelper.Create();
+            this.rtbSql.Text = result;            
 
-            var result=comparedHelper.Create();
-            this.rtbSql.Text = result;
         }
     }
 }
