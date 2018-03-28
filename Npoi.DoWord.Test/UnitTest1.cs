@@ -14,7 +14,7 @@ namespace Npoi.DoWord.Test
             //sqls = WordHelper.GenerateCreateTableSql(@"D:\紫云来数据库设计.docx", "StaMemberOrder", "StaGoodsOrder", "StaDayData");
             //sqls = WordHelper.GenerateCreateTableSql(@"D:\西域美农数据库设计.docx");
             //sqls = WordHelper.GenerateCreateTableSql(@"D:\公司官网概要设计.docx");
-            sqls = WordHelper.GenerateCreateTableSql(@"D:\数据库设计.docx", "SysMerchantGroup", "SysTrade", "Region", "SysMerchant", "SysModule", "SysMenu", "SysRole", "SysRoleFunc", "SysLogin", "SysLoginRole");
+            //sqls = WordHelper.GenerateCreateTableSql(@"D:\数据库设计.docx", "SysMerchantGroup", "SysTrade", "Region", "SysMerchant", "SysModule", "SysMenu", "SysRole", "SysRoleFunc", "SysLogin", "SysLoginRole");
             foreach (string sql in sqls)
             {
                 Console.WriteLine(sql);
@@ -53,6 +53,15 @@ namespace Npoi.DoWord.Test
 
             var index1 =  "datetime".IndexOf("(", StringComparison.Ordinal);
             Console.WriteLine(index1);
+        }
+
+
+        [TestMethod]
+        public void Test_Guid()
+        {
+            var source = "110000";            
+            Guid id=new Guid(string.Format("00000000-0000-0000-0000-000000{0}", source));
+            Console.WriteLine(id.ToString());
         }
     }
 }
